@@ -4,4 +4,33 @@
 
 body {
   min-height: 100vh;
+  display: grid;
+  grid-template-rows: min-content 1fr auto;
+}
+
+/* ========== main cards ============ */
+.cards-container {
+  padding: 50px 100px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.book-card {
+  padding: 20px;
+  width: 275px;
+  height: 315px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+
+  box-shadow: 2px 2px 6px 3px rgba(0, 0, 0, 0.2);
+}
+
+
+/* footer */
+footer {
+  background-color: lightgray;
 }
