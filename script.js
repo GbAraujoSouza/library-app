@@ -1,4 +1,7 @@
 const cardsContainer = document.querySelector(".cards-container");
+const newBookModal = document.querySelector("#new-book-form");
+const newBookBtn = document.querySelector(".new-book-btn");
+const addNewBookBtn = document.querySelector("button[type=submit]");
 
 class Book {
   constructor(title = "", author = "", numPages = 0, status = false) {
@@ -36,5 +39,12 @@ function displayLibrary() {
     cardsContainer.insertBefore(bookElement, cardsContainer.firstChild);
   });
 }
+
+newBookBtn.onclick = () => {
+  newBookModal.showModal();
+};
+addNewBookBtn.onclick = () => {
+  newBookModal.close();
+};
 
 window.addEventListener("load", displayLibrary);
