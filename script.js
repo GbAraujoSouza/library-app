@@ -23,7 +23,7 @@ const myLibrary = [
 function displayLibrary() {
   myLibrary.forEach((book) => {
     const bookElement = document.createElement("div");
-    bookElement.classList.add("book-card");
+    bookElement.classList.add("book-card", "card");
 
     const bookProperties = Object.keys(book);
 
@@ -33,7 +33,7 @@ function displayLibrary() {
       bookElement.appendChild(element);
     });
 
-    cardsContainer.appendChild(bookElement);
+    cardsContainer.insertBefore(bookElement, cardsContainer.firstChild);
   });
 }
 
