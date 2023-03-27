@@ -1,7 +1,8 @@
 const cardsContainer = document.querySelector(".cards-container");
-const newBookModal = document.querySelector("#new-book-form");
+const newBookModal = document.querySelector("#new-book-modal");
 const newBookBtn = document.querySelector(".new-book-btn");
 const addNewBookBtn = document.querySelector("button[type=submit]");
+const bookForm = document.querySelector(".new-book-form");
 
 class Book {
   constructor(title = "", author = "", numPages = 0, status = false) {
@@ -18,12 +19,22 @@ const myLibrary = [
   new Book("The Handmaid's tale", "Margaret Atwood", 300, true),
 ];
 
-// function addBookToLibrary(title, author, numPages, status) {
-//   const newBook = new Book(title, author, numPages, status);
-//   myLibrary.push(newBook);
-// }
+function addBookToLibrary(title, author, numPages, status) {
+  const newBook = new Book(title, author, numPages, status);
+  myLibrary.push(newBook);
+}
+
+function clearDisplay() {
+  // Clear all book cads except new book button
+  const bookCards = document.querySelectorAll(".book-card");
+  bookCards.forEach((book) => {
+    book.parentNode.removeChild(book);
+  });
+}
 
 function displayLibrary() {
+  clearDisplay();
+
   myLibrary.forEach((book) => {
     const bookElement = document.createElement("div");
     bookElement.classList.add("book-card", "card");
@@ -40,6 +51,13 @@ function displayLibrary() {
   });
 }
 
+function getData(form) {
+  const formDataObj = Object.fromEntries(new FormData(form));
+
+  const formValues = Object.values(formDataObj);
+  addBookToLibrary(...formValues);
+}
+
 newBookBtn.onclick = () => {
   newBookModal.showModal();
 };
@@ -47,4 +65,9 @@ addNewBookBtn.onclick = () => {
   newBookModal.close();
 };
 
+bookForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  getData(e.target);
+  displayLibrary();
+});
 window.addEventListener("load", displayLibrary);
