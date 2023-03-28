@@ -5,7 +5,7 @@ const addNewBookBtn = document.querySelector("button[type=submit]");
 const bookForm = document.querySelector(".new-book-form");
 
 class Book {
-  constructor(title = "", author = "", numPages = 0, status = false) {
+  constructor(title = "", author = "Unknown", numPages = 1, status = false) {
     this.title = title;
     this.author = author;
     this.numPages = numPages;
@@ -41,11 +41,26 @@ function displayLibrary() {
 
     const bookProperties = Object.keys(book);
 
-    bookProperties.forEach((property) => {
-      const element = document.createElement("p");
-      element.innerHTML = book[property];
-      bookElement.appendChild(element);
-    });
+    // bookProperties.forEach((property) => {
+    //   const element = document.createElement("p");
+    //   element.innerHTML = book[property];
+    //   bookElement.appendChild(element);
+    // });
+
+    const titleElement = document.createElement("p");
+    const authorElement = document.createElement("p");
+    const pagesElement = document.createElement("p");
+    const statusElement = document.createElement("p");
+
+    titleElement.innerHTML = book.title;
+    authorElement.innerHTML = book.author;
+    pagesElement.innerHTML = `Pages: ${book.numPages}`;
+    statusElement.innerHTML = book.status ? "Read" : "Not Read";
+
+    bookElement.appendChild(titleElement);
+    bookElement.appendChild(authorElement);
+    bookElement.appendChild(pagesElement);
+    bookElement.appendChild(statusElement);
 
     cardsContainer.insertBefore(bookElement, cardsContainer.firstChild);
   });
