@@ -69,5 +69,6 @@ bookForm.addEventListener("submit", (e) => {
   e.preventDefault();
   getData(e.target);
   displayLibrary();
+  bookForm.reset();
 });
 window.addEventListener("load", displayLibrary);

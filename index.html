@@ -17,7 +17,9 @@
   <body>
     <header>
       <h1>
-        <span><i class="fa-solid fa-book-open"></i> Library</span>
+        <a href="/">
+          <span><i class="fa-solid fa-book-open"></i> Library</span>
+        </a>
       </h1>
     </header>
 
@@ -38,15 +40,8 @@
           </div>
 
           <div class="form-row">
-            <label for="pages">Pages</label>
-
-            <span
-              class="input"
-              role="textbox"
-              contenteditable
-              aria-required="true"
-            >
-            </span>
+            <input type="number" name="pages" id="pages" required />
+            <label class="animated-label" for="pages">Pages</label>
           </div>
 
           <div class="form-row">
@@ -59,7 +54,10 @@
     </main>
 
     <footer>
-      <p>Created by @GbAraujoSouza<i class="fa-brands fa-github"></i></p>
+      <p>
+        Created by
+        <a href="">@GbAraujoSouza <i class="fa-brands fa-github"></i></a>
+      </p>
     </footer>
   </body>
 </html>
