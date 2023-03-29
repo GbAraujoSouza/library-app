@@ -2,6 +2,11 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap");
 
+:root {
+  --blue-clr: #3b82f6;
+  --indigo-clr: #6366f1;
+}
+
 * {
   box-sizing: border-box;
   /* padding: 0;
@@ -69,15 +74,24 @@ dialog {
   border: none;
   border-radius: 0.7rem;
   box-shadow: 0 0 1em rgb(0 0 0 / 0.3);
-  background-color: transparent;
+  background-color: rgb(255 255 255 / 0.2);
   backdrop-filter: blur(10px);
   color: #444;
+
+  width: 400px;
 }
 
-form.new-book-form {
+form > p {
+  text-align: center;
+  text-transform: capitalize;
+  font-weight: 600;
+  font-size: 1.4rem;
+}
+
+.new-book-form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 2rem;
 }
 .form-row {
   position: relative;
@@ -103,7 +117,7 @@ input[type="number"] {
   height: 35px;
   border: none;
   outline: none;
-  font-size: 1rem;
+  font-size: 1.2rem;
   background-color: transparent;
   border-bottom: 2px solid grey;
   padding: 0 35px 0 5px;
@@ -118,15 +132,26 @@ span.input:focus {
   outline: none;
   border-bottom: 2px solid grey;
 }
-input[type="radio"] {
-  accent-color: #6f17ff;
+input[type="checkbox"] {
+  accent-color: var(--blue-clr);
 }
 
-form > p {
-  text-align: center;
-  text-transform: uppercase;
-  font-weight: 600;
+.new-book-form button {
+  height: 35px;
   font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.05rem;
+  border-radius: 100vh;
+  color: #fff;
+  background-color: var(--blue-clr);
+  outline: none;
+  border: none;
+  transition: cubic-bezier(0.4, 0, 0.2, 1) 150ms;
+}
+
+.new-book-form button:hover {
+  background-color: var(--indigo-clr);
+  transform: translateY(-0.15rem) scale(1.01);
 }
 
 /* footer */
