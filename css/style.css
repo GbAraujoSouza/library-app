@@ -136,7 +136,7 @@ input[type="checkbox"] {
   accent-color: var(--blue-clr);
 }
 
-.new-book-form button {
+.new-book-form button[type="submit"] {
   height: 35px;
   font-size: 1.2rem;
   font-weight: 600;
@@ -149,9 +149,45 @@ input[type="checkbox"] {
   transition: cubic-bezier(0.4, 0, 0.2, 1) 150ms;
 }
 
-.new-book-form button:hover {
+.new-book-form button[type="submit"]:hover {
   background-color: var(--indigo-clr);
   transform: translateY(-0.15rem) scale(1.01);
+}
+
+.slider {
+  width: 10.7rem;
+  height: 1.5rem;
+  border: 2px solid #bbb;
+  border-radius: 0.4rem;
+  position: relative;
+  transition: background 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slider .button {
+  background: #dc2626;
+  border: none;
+  width: 50%;
+  height: 100%;
+  border-radius: 0.4rem;
+  pointer-events: none;
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  color: #fff;
+}
+
+.slider .button::after {
+  content: "Not Read";
+}
+
+.status-check input[type="checkbox"] {
+  display: none;
+}
+
+.status-check input[type="checkbox"]:checked ~ .slider > .button {
+  transform: translateX(100%);
+  background: #22c55e;
+}
+.status-check input[type="checkbox"]:checked ~ .slider > .button::after {
+  content: "Read";
 }
 
 /* footer */
