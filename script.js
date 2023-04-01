@@ -32,7 +32,11 @@ function clearDisplay() {
   });
 }
 
-function deleteBook(book) {}
+function deleteBook(book) {
+  const bookIndex = book.dataset.index;
+  myLibrary.splice(bookIndex, 1);
+  displayLibrary();
+}
 
 function addDeleteEvent() {
   const btns = document.querySelectorAll(".delete-btn");
