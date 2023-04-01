@@ -39,14 +39,6 @@ function displayLibrary() {
     const bookElement = document.createElement("div");
     bookElement.classList.add("book-card", "card");
 
-    const bookProperties = Object.keys(book);
-
-    // bookProperties.forEach((property) => {
-    //   const element = document.createElement("p");
-    //   element.innerHTML = book[property];
-    //   bookElement.appendChild(element);
-    // });
-
     const titleElement = document.createElement("p");
     const authorElement = document.createElement("p");
     const pagesElement = document.createElement("p");
