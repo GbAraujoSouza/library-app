@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="./css/normalize.css" />
     <link rel="stylesheet" href="./css/style.css" />
     <script src="script.js" defer></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <!-- Font awesome -->
     <script
       src="https://kit.fontawesome.com/cdcca037dd.js"
@@ -25,6 +29,13 @@
 
     <main class="cards-container">
       <button class="card new-book-btn">+</button>
+
+      <template>
+        <!-- <button class="delete-btn">butao</button> -->
+        <div class="delete-btn">
+          <i class="fa-regular fa-circle-xmark"></i>
+        </div>
+      </template>
 
       <dialog id="new-book-modal">
         <form action="" class="new-book-form">

@@ -48,10 +48,38 @@ header h1 a {
 }
 
 .book-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 30px;
 }
+
+.book-card .delete-btn {
+  position: absolute;
+  right: 8%;
+  font-size: 2rem;
+  border-radius: 100%;
+  color: gray;
+  transition: cubic-bezier(0.4, 0, 0.2, 1) 200ms;
+  cursor: pointer;
+}
+.book-card .delete-btn:hover {
+  color: #000;
+}
+/* .book-card::before {
+  position: absolute;
+  right: 5%;
+  color: gray;
+  font: var(--fa-font-regular);
+  font-size: 2rem;
+  content: "\f057";
+  vertical-align: middle;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: auto;
+}
+.book-card::before:hover .book-card::before {
+  color: #000;
+} */
 
 .new-book-btn {
   cursor: pointer;

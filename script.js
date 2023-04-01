@@ -32,11 +32,23 @@ function clearDisplay() {
   });
 }
 
+function deleteBook(book) {}
+
+function addDeleteEvent() {
+  const btns = document.querySelectorAll(".delete-btn");
+  btns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      deleteBook(btn.parentElement);
+    });
+  });
+}
+
 function displayLibrary() {
   clearDisplay();
 
   let countIndex = 0;
   myLibrary.forEach((book) => {
+    // create the book node
     const bookElement = document.createElement("div");
     bookElement.classList.add("book-card", "card");
 
@@ -55,11 +67,20 @@ function displayLibrary() {
     bookElement.appendChild(pagesElement);
     bookElement.appendChild(statusElement);
 
+    // set Index of book
     bookElement.setAttribute("data-index", countIndex);
     countIndex += 1;
 
+    // append clear btn
+    const clearBtnTemplate = document.getElementsByTagName("template")[0];
+    const clearBtnClone = clearBtnTemplate.content.cloneNode(true);
+    bookElement.appendChild(clearBtnClone);
+
+    // add book to container
     cardsContainer.insertBefore(bookElement, cardsContainer.firstChild);
   });
+
+  addDeleteEvent();
 }
 
 function getData(form) {
