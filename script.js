@@ -1,7 +1,6 @@
 const cardsContainer = document.querySelector(".cards-container");
 const newBookModal = document.querySelector("#new-book-modal");
 const newBookBtn = document.querySelector(".new-book-btn");
-const addNewBookBtn = document.querySelector("button[type=submit]");
 const bookForm = document.querySelector(".new-book-form");
 
 class Book {
@@ -97,14 +96,12 @@ function getData(form) {
 newBookBtn.onclick = () => {
   newBookModal.showModal();
 };
-addNewBookBtn.onclick = () => {
-  newBookModal.close();
-};
 
 bookForm.addEventListener("submit", (e) => {
   e.preventDefault();
   getData(e.target);
   displayLibrary();
   bookForm.reset();
+  newBookModal.close();
 });
 window.addEventListener("load", displayLibrary);
