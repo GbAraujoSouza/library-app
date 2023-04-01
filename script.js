@@ -35,6 +35,7 @@ function clearDisplay() {
 function displayLibrary() {
   clearDisplay();
 
+  let countIndex = 0;
   myLibrary.forEach((book) => {
     const bookElement = document.createElement("div");
     bookElement.classList.add("book-card", "card");
@@ -53,6 +54,9 @@ function displayLibrary() {
     bookElement.appendChild(authorElement);
     bookElement.appendChild(pagesElement);
     bookElement.appendChild(statusElement);
+
+    bookElement.setAttribute("data-index", countIndex);
+    countIndex += 1;
 
     cardsContainer.insertBefore(bookElement, cardsContainer.firstChild);
   });
