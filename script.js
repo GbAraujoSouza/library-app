@@ -62,7 +62,7 @@ function displayLibrary() {
     const titleElement = document.createElement("p");
     const authorElement = document.createElement("p");
     const pagesElement = document.createElement("p");
-    const statusElement = document.createElement("p");
+    const statusElement = document.createElement("button");
 
     titleElement.innerHTML = book.title;
     titleElement.setAttribute("data-info", "title");

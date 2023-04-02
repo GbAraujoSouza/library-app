@@ -5,6 +5,8 @@
 :root {
   --blue-clr: #3b82f6;
   --indigo-clr: #6366f1;
+  --green-clr: #22c55e;
+  --red-clr: #dc2626;
 }
 
 * {
@@ -61,6 +63,41 @@ header h1 a {
 .book-card p[data-info="pages"] {
   margin-top: 3em;
   margin-bottom: 1.5em;
+}
+.book-card button[data-info="status"] {
+  position: relative;
+  width: 8rem;
+  text-align: start;
+  padding: 0.25rem 0.4rem;
+  border: none;
+  border-bottom: 2px solid lightgray;
+  background-color: #fff;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 0.3rem;
+  z-index: 0;
+  cursor: pointer;
+  transition: cubic-bezier(0.4, 0, 0.2, 1) 200ms;
+}
+.book-card button[data-info="status"]::before {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background-color: var(--green-clr);
+  border-radius: inherit;
+  z-index: -1;
+  transition: cubic-bezier(0.4, 0, 0.2, 1) 200ms;
+}
+.book-card button[data-info="status"].not-read {
+  text-align: end;
+}
+.book-card button[data-info="status"].not-read::before {
+  background-color: var(--red-clr);
+  transform: translateX(100%);
+  z-index: -1;
 }
 
 .book-card .delete-btn {
@@ -188,7 +225,7 @@ input[type="checkbox"] {
 }
 
 .slider .button {
-  background: #dc2626;
+  background: var(--red-clr);
   border: none;
   width: 50%;
   height: 100%;
@@ -208,7 +245,7 @@ input[type="checkbox"] {
 
 .status-check input[type="checkbox"]:checked ~ .slider > .button {
   transform: translateX(100%);
-  background: #22c55e;
+  background: var(--green-clr);
 }
 .status-check input[type="checkbox"]:checked ~ .slider > .button::after {
   content: "Read";
