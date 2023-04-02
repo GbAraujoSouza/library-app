@@ -10,6 +10,10 @@ class Book {
     this.numPages = numPages;
     this.status = status;
   }
+
+  changeStatus() {
+    this.status = !this.status;
+  }
 }
 
 const myLibrary = [
@@ -61,9 +65,16 @@ function displayLibrary() {
     const statusElement = document.createElement("p");
 
     titleElement.innerHTML = book.title;
+    titleElement.setAttribute("data-info", "title");
+
     authorElement.innerHTML = book.author;
-    pagesElement.innerHTML = `Pages: ${book.numPages}`;
+    authorElement.setAttribute("data-info", "author");
+
+    pagesElement.innerHTML = `${book.numPages} pages`;
+    pagesElement.setAttribute("data-info", "pages");
+
     statusElement.innerHTML = book.status ? "Read" : "Not Read";
+    statusElement.setAttribute("data-info", "status");
 
     bookElement.appendChild(titleElement);
     bookElement.appendChild(authorElement);
