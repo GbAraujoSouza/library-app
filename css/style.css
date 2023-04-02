@@ -9,8 +9,8 @@
 
 * {
   box-sizing: border-box;
-  /* padding: 0;
-  margin: 0; */
+  padding: 0;
+  margin: 0;
 }
 
 body {
@@ -39,7 +39,7 @@ header h1 a {
 }
 
 .card {
-  padding: 20px;
+  padding: 1.2rem;
   width: 315px;
   height: 355px;
   border-radius: 20px;
@@ -51,12 +51,22 @@ header h1 a {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  justify-content: start;
+}
+.book-card p[data-info="title"] {
+  font-size: 1.4em;
+  font-weight: 600;
+  margin-top: 1em;
+}
+.book-card p[data-info="pages"] {
+  margin-top: 3em;
+  margin-bottom: 1.5em;
 }
 
 .book-card .delete-btn {
   position: absolute;
-  right: 8%;
+  top: 6%;
+  right: 6%;
   font-size: 2rem;
   border-radius: 100%;
   color: gray;
