@@ -11,9 +11,29 @@ class Book {
     this.status = status;
   }
 
-  changeStatus() {
-    this.status = !this.status;
+  updateBookInfo() {
+    // get element
+    const index = myLibrary.indexOf(this);
+    const bookElement = cardsContainer.querySelector(`[data-index='${index}']`);
+
+    // get info element to update
+    const statusElement = bookElement.querySelector(`[data-info='status']`);
+
+    // update info
+    if (this.status) {
+      statusElement.innerHTML = "Read";
+      statusElement.classList.remove("not-read");
+    } else {
+      statusElement.innerHTML = "Not Read";
+      statusElement.classList.add("not-read");
+    }
   }
+
+  changeStatus = () => {
+    this.status = !this.status;
+    // call function to update book info on page
+    this.updateBookInfo();
+  };
 }
 
 const myLibrary = [
@@ -74,7 +94,15 @@ function displayLibrary() {
     pagesElement.setAttribute("data-info", "pages");
 
     statusElement.innerHTML = book.status ? "Read" : "Not Read";
+
+    if (book.status) {
+      statusElement.innerHTML = "Read";
+    } else {
+      statusElement.innerHTML = "Not Read";
+      statusElement.classList.add("not-read");
+    }
     statusElement.setAttribute("data-info", "status");
+    statusElement.addEventListener("click", book.changeStatus);
 
     bookElement.appendChild(titleElement);
     bookElement.appendChild(authorElement);

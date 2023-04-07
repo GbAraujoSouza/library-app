@@ -66,8 +66,10 @@ header h1 a {
 }
 .book-card button[data-info="status"] {
   position: relative;
-  width: 8rem;
+  font-size: 0.9rem;
+  width: 9rem;
   text-align: start;
+  line-height: 1rem;
   padding: 0.25rem 0.4rem;
   border: none;
   border-bottom: 2px solid lightgray;
